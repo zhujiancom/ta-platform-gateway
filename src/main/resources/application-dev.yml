@@ -3,7 +3,7 @@ server:
   port: 8282
 spring:
   application:
-    name: gateway-app
+    name: gateway
   cloud:
     gateway:
       discovery:
@@ -11,11 +11,17 @@ spring:
           enabled: true
       routes:
         - id: core-service-api-route
-          uri: lb://CORE-SERVICE-API
+          uri: lb://core-service-api
           predicates:
             - Path=/core/**
           filters:
             - StripPrefix=1
+        #==============================
+        - id: authc-service-api-route
+          uri: lb://authority-app
+          predicates:
+            - Path=/authc/**
+
     nacos:
       discovery:
         server-addr: ${my-server-host}:8848

@@ -1,7 +1,5 @@
 package com.ta.platform.filter;
 
-import com.alibaba.fastjson.JSON;
-import com.ta.platform.response.Response;
 import org.reactivestreams.Publisher;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.cloud.gateway.filter.GlobalFilter;
@@ -42,9 +40,10 @@ public class WrapperResponseFilter implements GlobalFilter, Ordered {
                         // 释放掉内存
                         DataBufferUtils.release(dataBuffer);
                         String rs = new String(content, Charset.forName("UTF-8"));
-                        Response response = Response.builder().code(1).message("请求成功").data(rs).build();
-
-                        byte[] newRs = JSON.toJSONString(response).getBytes(Charset.forName("UTF-8"));
+//                        Response response = Response.builder().code(1).message("请求成功").data(rs).build();
+//
+//                        byte[] newRs = JSON.toJSONString(response).getBytes(Charset.forName("UTF-8"));
+                        byte[] newRs = rs.getBytes(Charset.forName("UTF-8"));
                         originalResponse.getHeaders().setContentLength(newRs.length);//如果不重新设置长度则收不到消息。
                         return bufferFactory.wrap(newRs);
                     }));

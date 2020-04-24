@@ -56,9 +56,4 @@ public class RouteConfiguration {
             return chain.filter(ctx);
         };
     }
-
-    @Bean
-    public ServerCodecConfigurer serverCodecConfigurer() {
-        return new DefaultServerCodecConfigurer();
-    }
 }
