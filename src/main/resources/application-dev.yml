@@ -1,4 +1,4 @@
-my-server-host: 192.168.1.43
+my-server-host: 47.102.101.181
 server:
   port: 8282
 spring:
@@ -18,7 +18,7 @@ spring:
             - StripPrefix=1
         #==============================
         - id: authc-service-api-route
-          uri: lb://authority-app
+          uri: lb://authc-app
           predicates:
             - Path=/authc/**
 

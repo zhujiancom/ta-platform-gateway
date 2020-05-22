@@ -39,7 +39,7 @@
 
     </appender>
 
-    <springProfile name="dev">
+    <springProfile name="dev, home">
         <logger name="com.ta.platform" level="DEBUG"/>
     </springProfile>
 

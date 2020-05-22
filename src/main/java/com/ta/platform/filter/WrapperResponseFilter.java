@@ -22,7 +22,7 @@ import java.nio.charset.Charset;
  * Time: 3:13 PM
  * Description:
  */
-@Component
+//@Component
 public class WrapperResponseFilter implements GlobalFilter, Ordered {
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {

@@ -1,4 +1,4 @@
-my-server-host: 10.0.0.27
+my-server-host: 47.102.101.181
 server:
   port: 8282
 spring:
